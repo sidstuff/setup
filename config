@@ -1,0 +1,15 @@
+mpd_music_dir = ~/music
+mpd_crossfade_time = 2
+
+visualizer_data_source = /tmp/mpd.fifo
+visualizer_output_name = fifo_mpd
+visualizer_type = spectrum
+visualizer_spectrum_smooth_look = no
+visualizer_look = ●█
+visualizer_color = 116, 117, 111, 183, 218, 217, 211
+
+progressbar_look = ━━━
+progressbar_color = 60
+progressbar_elapsed_color = 151
+
+allow_for_physical_item_deletion = yes
