@@ -36,7 +36,7 @@
         {
             "type": "os",
             "key": " OS",
-            "keyColor": "red"
+            "keyColor": "blue"
         },
         {
             "type": "kernel",
@@ -56,37 +56,42 @@
         {
             "type": "lm",
             "key": "│ ├󰧨",
-            "keyColor": "cyan"
+            "keyColor": "yellow"
         },
         {
             "type": "terminal",
             "key": "│ ├",
-            "keyColor": "cyan"
+            "keyColor": "yellow"
         },
         {
             "type": "uptime",
             "key": "└ └󰅐",
-            "keyColor": "cyan"
+            "keyColor": "yellow"
         },
         {
             "type": "host",
             "key": " PC",
-            "keyColor": "red"
+            "keyColor": "blue"
         },
         {
             "type": "cpu",
             "key": "│ ├",
-            "keyColor": "yellow"
+            "keyColor": "cyan"
         },
         {
             "type": "gpu",
             "key": "│ ├󰍛",
-            "keyColor": "yellow"
+            "keyColor": "cyan"
         },
         {
             "type": "display",
             "key": "│ ├󰍹",
-            "keyColor": "yellow"
+            "keyColor": "cyan"
+        },
+        {
+            "type": "sound",
+            "key": "│ ├",
+            "keyColor": "green"
         },
         {
             "type": "disk",
@@ -102,21 +107,6 @@
             "type": "swap",
             "key": "└ └󰓡",
             "keyColor": "green"
-        },
-        {
-            "type": "sound",
-            "key": " SND",
-            "keyColor": "red"
-        },
-        {
-            "type": "player",
-            "key": "│ ├󰥠",
-            "keyColor": "blue"
-        },
-        {
-            "type": "media",
-            "key": "└ └󰝚",
-            "keyColor": "blue"
         },
         {
             "type": "custom",
