@@ -12,7 +12,7 @@ if [ "$(git pull origin)" != "Already up to date." ]; then
 fi
 cd /root/kmscon
 if [ "$(git pull origin)" != "Already up to date." ]; then
-  meson setup build/
+  meson setup -Dbackspace_sends_delete=true build/
   meson install -C build/
 fi
 ldconfig
