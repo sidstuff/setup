@@ -28,7 +28,7 @@ meson install -C build/
 cd ..
 
 git clone --single-branch -b main https://github.com/Aetf/kmscon && cd kmscon
-meson setup build/
+meson setup -Dbackspace_sends_delete=true build/
 meson install -C build/
 cd ..
 
@@ -37,7 +37,7 @@ systemctl disable getty@tty1.service
 systemctl enable kmsconvt@tty1.service
 
 mkdir /usr/local/etc/kmscon
-echo "font-name=JetBrainsMono Nerd Font Mono" > /usr/local/etc/kmscon/kmscon.conf
+echo "font-name=JetBrainsMono Nerd Font" > /usr/local/etc/kmscon/kmscon.conf
 curl -fLO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
 JB_VER=$(curl -fsSi https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip | grep -oP 'location: https://github.com/ryanoasis/nerd-fonts/releases/download/v\K.*(?=/JetBrainsMono.zip)')
 unzip JetBrainsMono.zip -d /usr/share/fonts/JetBrainsMono$JB_VER && rm JetBrainsMono.zip
