@@ -3,7 +3,7 @@
 ![Screenshot](screenshot.png)
 
 > [!IMPORTANT]
-> Currently supports fresh standard installations of [Debian](https://www.debian.org/download) >= 13 or [Ubuntu Server](https://ubuntu.com/download/server) >= 24.04, as well as of [r0b0/debian-installer](https://github.com/r0b0/debian-installer) for which you need to either `apt purge --auto-remove tpm2-tools` or (if using the TPM) `apt install -t trixie-backports curl` beforehand (see their [#103](https://github.com/r0b0/debian-installer/issues/103))
+> Currently supports fresh standard installations of [Debian](https://www.debian.org/download) >= 13 or [Ubuntu Server](https://ubuntu.com/download/server) >= 24.04, as well as of [r0b0/debian-installer](https://github.com/r0b0/debian-installer) for which you need to either `apt autopurge tpm2-tools` or (if using the TPM) `apt install -t trixie-backports curl` beforehand (see their [#103](https://github.com/r0b0/debian-installer/issues/103))
 
 Run one of the following commands as the user for whom you wish to perform the setup:
 ```
