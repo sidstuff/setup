@@ -1,6 +1,6 @@
-[ "$(id -u)" -ne 0 ] && printf "Script needs to be run as root.\nExiting...\n" >&2 && exit 1
+[ "$(id -u)" = 0 ] || { printf "Script needs to be run as root.\nExiting...\n" >&2; exit 1; }
 apt update && apt upgrade
-snap refresh
+if snap version; then snap refresh; fi
 
 cd /root/libtsm
 if [ "$(git pull origin)" != "Already up to date." ]; then
