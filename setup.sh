@@ -1,18 +1,13 @@
-set -ex
-
-[ "$(id -u)" -ne 0 ] && printf "Script needs to be run as root.\nExiting...\n" >&2 && exit 1
+[ "$(id -u)" = 0 ] || { printf "Script needs to be run as root.\nExiting...\n" >&2; exit 1; }
 echo "en_US.UTF-8 UTF-8" >| /etc/locale.gen && locale-gen
 printf 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' >| /etc/default/locale
 
-exit1() {
-  printf "Script currently only supports Debian >= 13 and Ubuntu >= 24.04\nExiting...\n" >&2
-  exit 1
-}
+exit1() { printf "Script currently only supports Debian >= 13 and Ubuntu >= 24.04\nExiting...\n" >&2; exit 1; }
 export DEBIAN_FRONTEND=noninteractive
 apt update
 apt upgrade -y
-. /etc/os-release
 
+. /etc/os-release
 case "$ID" in
   ubuntu)
     case "$(printf %.0f $VERSION_ID)" in
@@ -42,11 +37,11 @@ apt install -y meson
 apt install -y --no-install-recommends libudev-dev libxkbcommon-dev libpango1.0-dev pkgconf check unzip chafa fastfetch fbgrab pulseaudio mpd ncmpcpp bear
 sed -i '/^load-module module-suspend-on-idle/s/^/#/' /etc/pulse/default.pa
 
-# https://github.com/browsh-org/browsh/blob/master/Dockerfile
-apt install -y --mark-auto --no-install-recommends curl ca-certificates git autoconf automake g++ protobuf-compiler zlib1g-dev libncurses-dev libssl-dev pkgconf libprotobuf-dev make bzip2
 curl -fLO https://github.com/browsh-org/browsh/archive/vim-mode-2022.zip
 unzip vim-mode-2022.zip && cd browsh-vim-mode-2022
 sed -i 's/^browsh_supporter.*/browsh_supporter = "I have shown my support for Browsh"/' interfacer/src/browsh/config_sample.go
+# https://github.com/browsh-org/browsh/blob/master/Dockerfile
+apt install -y --mark-auto --no-install-recommends curl ca-certificates git autoconf automake g++ protobuf-compiler zlib1g-dev libncurses-dev libssl-dev pkgconf libprotobuf-dev make bzip2
 export GOROOT=/go
 export GOPATH=/go-home
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
