@@ -66,7 +66,7 @@ meson install -C build/
 cd ..
 
 git clone --single-branch -b main https://github.com/kmscon/kmscon && cd kmscon
-meson setup -Dbackspace_sends_delete=true build/
+meson setup build/
 meson install -C build/
 cd ..
 
