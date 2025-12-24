@@ -1,3 +1,5 @@
+set -ex
+
 [ "$(id -u)" -ne 0 ] && printf "Script needs to be run as root.\nExiting...\n" >&2 && exit 1
 echo "en_US.UTF-8 UTF-8" >| /etc/locale.gen && locale-gen
 printf 'LANG="en_US.UTF-8"\nLANGUAGE="en_US:en"\n' >| /etc/default/locale
