@@ -21,6 +21,7 @@ set -g @tmux2k-theme 'catppuccin'
 run '~/.tmux/plugins/tpm/tpm'
 EOF
 
+export XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 git clone --depth 1 https://github.com/NvChad/starter ~/.config/nvim && rm -rf ~/.config/nvim/.git
 echo 'require("nvchad.configs.lspconfig").defaults()' >| ~/.config/nvim/lua/configs/lspconfig.lua
 curl --output-dir ~/.config/nvim/lua/plugins/ \
