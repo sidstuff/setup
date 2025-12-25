@@ -11,12 +11,12 @@ apt upgrade -y
 case "$ID" in
   ubuntu)
     case "$(printf %.0f $VERSION_ID)" in
-      24) snap install neovim --classic ; add-apt-repository ppa:zhangsongcui3371/fastfetch ;;
+      24) snap install neovim --classic ; add-apt-repository -y ppa:zhangsongcui3371/fastfetch ;;
       25) snap install neovim --classic ;;
       26) apt install -y --no-install-recommends neovim ;;
        *) exit1 ;;
     esac
-    add-apt-repository ppa:mozillateam/ppa
+    add-apt-repository -y ppa:mozillateam/ppa
     timedatectl set-timezone "$(curl -fsSL https://ipapi.co/timezone)"
     ;;
   debian)
