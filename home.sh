@@ -46,12 +46,12 @@ echo "fastfetch" >> ~/.bashrc
 mkdir -p ~/music/playlists
 curl --create-dirs --output-dir ~/.config/mpd \
      -fLO https://raw.githubusercontent.com/sidstuff/setup/master/mpd.conf
-export XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+export XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus PATH=$PATH:/snap/bin
 systemctl --user enable --now mpd.socket
 curl --create-dirs --output-dir ~/.config/ncmpcpp \
      -fLO https://raw.githubusercontent.com/sidstuff/setup/master/config
 
-tmux new-session '/snap/bin/nvim + <(echo "Almost done! Press Ctrl-b followed by (an uppercase) I, \
+tmux new-session 'nvim + <(echo "Almost done! Press Ctrl-b followed by (an uppercase) I, \
 then run :MasonInstallAll and :TSInstall all, then finally open the theme selector \
 by sequentially pressing <space>th and select the catpuccin theme. \
 When editing code, you can run :LspInstall to install the relevant LSP. \
