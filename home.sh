@@ -7,8 +7,7 @@ git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyo
 make -C ble.sh install PREFIX=~/.local
 echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bashrc
 
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-mkdir -p ~/.config/tmux
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 cat > ~/.config/tmux/tmux.conf << 'EOF'
 set -as terminal-overrides ",*:Tc"
 
@@ -18,7 +17,7 @@ set -g @plugin '2kabhishek/tmux2k'
 set -g @tmux2k-theme 'catppuccin'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run '~/.tmux/plugins/tpm/tpm'
+run '~/.config/tmux/plugins/tpm/tpm'
 EOF
 
 git clone --depth 1 https://github.com/NvChad/starter ~/.config/nvim && rm -rf ~/.config/nvim/.git
@@ -28,7 +27,8 @@ curl --output-dir ~/.config/nvim/lua/plugins/ \
 curl --output-dir ~/.config/nvim/lua/configs/ \
      -fLO https://raw.githubusercontent.com/jyf111/neovim-config/master/lua/configs/scrollview.lua
 
-echo "if [ \"\$(cat /sys/class/tty/tty0/active)\" = tty1 ]; then
+echo "export TMUX_PLUGIN_MANAGER_PATH=~/.config/tmux/plugins/
+if [ \"\$(cat /sys/class/tty/tty0/active)\" = tty1 ]; then
   if [ \"\$TMUX\" ]; then
     nvim +terminal
   else
