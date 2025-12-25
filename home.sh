@@ -46,11 +46,12 @@ echo "fastfetch" >> ~/.bashrc
 mkdir -p ~/music/playlists
 curl --create-dirs --output-dir ~/.config/mpd \
      -fLO https://raw.githubusercontent.com/sidstuff/setup/master/mpd.conf
-export XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus PATH=$PATH:/snap/bin
+export XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 systemctl --user enable --now mpd.socket
 curl --create-dirs --output-dir ~/.config/ncmpcpp \
      -fLO https://raw.githubusercontent.com/sidstuff/setup/master/config
 
+export PATH=$PATH:/snap/bin TMUX_PLUGIN_MANAGER_PATH=~/.config/tmux/plugins/
 tmux new-session 'nvim + <(echo "Almost done! Press Ctrl-b followed by (an uppercase) I, \
 then run :MasonInstallAll and :TSInstall all, then finally open the theme selector \
 by sequentially pressing <space>th and select the catpuccin theme. \
